@@ -1,0 +1,168 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: roboto;
+    margin: 0;
+    background-color: #F6F9FC;
+}
+
+.card {
+    width: 85%;
+    max-width: 560px;
+    min-height: 270px;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px 0px rgba(219, 219, 219, 1);
+    display: flex;
+    flex-direction: column;
+    /* gap: 3px; */
+    position: relative;
+}
+
+.quote-sign {
+    font-size: 2.25rem;
+    color: rgb(177, 73, 177);
+}
+
+.quote-text {
+    font-size: 1.5rem;
+    color: rgb(66, 84, 102);
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.author-name {
+    font-size: 1.25rem;
+    font-style: oblique;
+    font-weight: bold;
+    color: rgb(92, 92, 92);
+    opacity: 0;
+    display: none;
+    animation: fadeOut 1.5s;
+}
+
+.author-name.show {
+    animation: fadeIn 1.5s;
+    display: block;
+    opacity: 1;
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.blink-cursor {
+    animation: blink 1.5s step-end infinite;
+    display: inline;
+    font-size: 24px;
+    font-style: italic;
+}
+
+.get-quote-button {
+    color: rgb(177, 73, 177);
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: none;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    padding: 0;
+    display: flex;
+}
+
+.get-quote-button[disabled] {
+    color: rgb(249, 187, 249);
+    cursor: not-allowed;   
+    animation: spin 1.2s infinite;
+}
+
+
+
+
+.get-quote-button i {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.get-quote-button i::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.get-quote-button i:hover {
+    color: rgb(249, 187, 249);
+    transition: 0.3s ease;
+}
+
+.get-quote-button i.spin {
+    animation: spin 1s infinite;
+}
+
+/* animations */
+
+@keyframes blink {
+
+    from,
+    to {
+        color: transparent;
+    }
+
+    50% {
+        color: #2c3e50;
+    }
+}
+
+
+@keyframes fadeIn {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    1% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+
+    99% {
+        display: block;
+        opacity: 0;
+    }
+
+    100% {
+        display: none;
+        opacity: 0;
+    }
+}
+
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
