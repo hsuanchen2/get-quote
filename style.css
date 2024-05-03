@@ -103,9 +103,6 @@ body {
     transition: 0.3s ease;
 }
 
-.get-quote-button i.spin {
-    animation: spin 1s infinite;
-}
 
 /* animations */
 
